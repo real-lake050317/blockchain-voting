@@ -11,6 +11,7 @@ import {
 import App from "./pages/App";
 import About from "./pages/About";
 import Encode from "./pages/Encode";
+import OCR from "./pages/OCR";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
       <Route path="/encode" element={<Encode />} />
+      <Route path="/ocr" element={<OCR />} />
     </>
   )
 );
