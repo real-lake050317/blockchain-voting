@@ -4,9 +4,7 @@ import Tesseract from "tesseract.js";
 import CardUpload from "../components/CardUpload";
 
 const OCR = () => {
-  return <>
-    <CardUpload />
-  </>;
+  return <CardUpload />
 };
 
 export default OCR;
