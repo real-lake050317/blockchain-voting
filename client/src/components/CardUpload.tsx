@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { createWorker } from "tesseract.js";
+
+import { navToLogin } from "../functions/navigation/navToLogin";
 
 const readData = async (file: File) => {
   const worker = await createWorker({
@@ -14,20 +16,21 @@ const readData = async (file: File) => {
   console.log(text);
   const regex = /\d{6}-\d{7}/g;
   const matches = text.match(regex);
+
   if (matches) {
     console.log(matches[0]);
-    alert(matches[0]);
+    sessionStorage.setItem("cardNumber", matches[0]);
+    navToLogin();
   } else {
-    console.log("No matches");
+    alert("인식 오류");
   }
 
   await worker.terminate();
-
-  return matches?[0]:null;
 };
 
 const CardUpload = () => {
-  const [file, setFile] = React.useState<File | null>(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [text, setText] = useState<string>("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
