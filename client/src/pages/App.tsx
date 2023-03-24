@@ -4,7 +4,11 @@ import {
   buttonContainer,
   mainPageButton,
   mainPageButtonHover,
+  mainTitle
 } from "../styles/exports";
+
+import { navToOCR } from "../functions/navigation/navToOCR";
+
 
 const App = () => {
   const [isHoverVoteButton, setIsHoverVoteButton] = useState(false);
@@ -31,7 +35,7 @@ const App = () => {
   return (
     <div>
       <div className="main-page-title">
-        <h1>ChainVote - Team 노준영 (김진호, 황규빈, 홍승재)</h1>
+        <h1 style={mainTitle}>ChainVote - 국가 표준 블록체인 투표 시스템</h1>
       </div>
       <div style={buttonContainer} className="button-container">
         <button
@@ -43,6 +47,7 @@ const App = () => {
           onMouseLeave={() => {
             setIsHoverVoteButton(false);
           }}
+          onClick={navToOCR}
         >
           투표하러 가기
         </button>
